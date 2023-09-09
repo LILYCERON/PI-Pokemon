@@ -1,0 +1,33 @@
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align:center;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.home-title{
+    margin-top: 75px;
+    margin-bottom: 50px;
+    font-size: 76px;
+    color:darkorange;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    background-image: url('/home/lili/Descargas/PI-Pokemon-main/client/src/assets/images/home.webp');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position:relative;
+    background-attachment: fixed;
+}
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
