@@ -45,7 +45,11 @@ module.exports = (sequelize) => {
     weight: {
       type:DataTypes.STRING,
       allowNull: false,
-    }
+    },
 
+    pokemonTypes: {
+      type:DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false
+    }
   });
 };

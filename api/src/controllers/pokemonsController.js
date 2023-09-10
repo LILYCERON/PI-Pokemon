@@ -1,10 +1,13 @@
 const axios = require('axios')
-const { Pokemons } = require('../db')
+const { Pokemons, Type } = require('../db')
 
-const createPokeDB = async (name, id, image, life, attack, defense, speed, height, weight) => {
-    const NewPoke = await Pokemons.create({ name, id, image, life, attack, defense, speed, height, weight })
-
-    return NewPoke;
+const createPokeDB = async (name, id, image, life, attack, defense, speed, height, weight, pokemonTypes) => {
+    const newPoke = await Pokemons.create({ name, id, image, life, attack, defense, speed, height, weight, pokemonTypes })
+    let pokemonDb = await Type.findAll({
+        where: { pokemonTypes },
+      });
+      newPoke.addType(pokemonDb);
+    return newPoke;
 }
 
 

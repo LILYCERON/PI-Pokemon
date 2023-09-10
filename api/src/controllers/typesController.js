@@ -3,9 +3,11 @@ const { Type } = require('../db')
 
 const getTypes = async () => {
     const infoTypes = await axios.get(`https://pokeapi.co/api/v2/type`)
-    const arrayTypes = infoTypes.data.results.map((type) => {
+    const arrayTypes = infoTypes.data.results.map( (type) => {
+        Type.create({pokemonTypes: type.name})
         return type.name       
     })
+
     return arrayTypes
 } 
 

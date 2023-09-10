@@ -4,6 +4,7 @@ export const GET_POKEMONS = "GET_POKEMONS"
 export const GET_BY_NAME = "GET_BY_NAME"
 export const GET_POKEMON_BY_ID = "GET_POKEMON_BY_ID" 
 export const GET_TYPES = "GET_TYPES"
+export const FILTERS = "FILTERS"
 
 export function getPokemons() {
     return async function (dispatch) {
@@ -59,5 +60,12 @@ export function getPokemonById(id) {
       } catch (error) {
         console.log(error.message);
       }
+    };
+  }
+
+  export function filters(payload) {
+    return {
+      type: FILTERS,
+      payload,
     };
   }
