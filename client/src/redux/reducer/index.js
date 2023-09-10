@@ -1,4 +1,4 @@
-import { GET_POKEMONS, GET_BY_NAME, GET_POKEMON_BY_ID, FILTERS, GET_TYPES } from "../actions";
+import { GET_POKEMONS, GET_BY_NAME, GET_POKEMON_BY_ID, FILTERS, GET_TYPES, GET_POKEMONS_BY_TYPE } from "../actions";
 
 let inicialState = {
     Pokemons: [],
@@ -25,11 +25,16 @@ function rootReducer(state = inicialState, action) {
                 ...state,
                 PokeCopy: action.payload
             }
-            case GET_TYPES:
-                return {
-                  ...state,
-                  pokemonTypes: action.payload,
-                };
+        case GET_TYPES:
+            return {
+                ...state,
+                pokemonTypes: action.payload,
+            };
+        case GET_POKEMONS_BY_TYPE:
+            return {
+                ...state,
+                PokeCopy: action.payload,
+            };
         case FILTERS:
             const createFilte =
                 action.payload === "created"

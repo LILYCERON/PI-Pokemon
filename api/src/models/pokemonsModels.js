@@ -14,7 +14,8 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
 
     life:{
@@ -49,6 +50,12 @@ module.exports = (sequelize) => {
 
     pokemonTypes: {
       type:DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false
+    },
+
+    createdInDb: {
+      type:DataTypes.BOOLEAN,
+      defaultValue: true,
       allowNull: false
     }
   });

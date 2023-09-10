@@ -5,6 +5,7 @@ export const GET_BY_NAME = "GET_BY_NAME"
 export const GET_POKEMON_BY_ID = "GET_POKEMON_BY_ID" 
 export const GET_TYPES = "GET_TYPES"
 export const FILTERS = "FILTERS"
+export const GET_POKEMONS_BY_TYPE = "GET_POKEMONS_BY_TYPE"
 
 export function getPokemons() {
     return async function (dispatch) {
@@ -24,6 +25,16 @@ export function getByName(name) {
             payload: response.data
         })
     }
+}
+
+export function getPokemonsByType(payload) {
+  return async function (dispatch) {
+      const response = await axios(`http://www.localhost:3001/pokemons/type-filter/?type=${payload}`);
+      return dispatch({
+          type: GET_POKEMONS_BY_TYPE,
+          payload: response.data
+      })
+  }
 }
 
 export function getPokemonById(id) {

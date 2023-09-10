@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { filters, getByName, getPokemons, getTypes } from "../../redux/actions/index"
+import { filters, getByName, getPokemons, getPokemonsByType, getTypes } from "../../redux/actions/index"
 import Cards from '../../components/Cards/Cards.component';
 import NavBar from '../../components/NavBar/NavBar.component';
 import './home.styles.css';
@@ -37,6 +37,12 @@ function Home() {
     evento.preventDefault()
     dispatch(getByName(searchString))
   }
+
+  const handleFilterByType = (e) => {
+    e.preventDefault();
+    dispatch(getPokemonsByType(e.target.value));
+    setCurrentPage(1);
+  };
 
   const handleFilter = (e) => {
     e.preventDefault();
@@ -114,7 +120,7 @@ function Home() {
           <select
             id="2"
             defaultValue="Select Type:"
-            //onChange={(e) => handleFilterByType(e)}
+            onChange={(e) => handleFilterByType(e)}
           >
             <option key='dis' value="Select Type:" disabled>
               Select Type:
